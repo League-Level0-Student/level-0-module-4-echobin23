@@ -23,20 +23,25 @@ public class HappyPet {
 				JOptionPane.INFORMATION_MESSAGE, null, new String[] { "Give food", "Cuddle", "PLay with it" }, null);
 
 		// 5. Use user input to call the appropriate method created in step 4.
-		if (task == 3) {
-			food();
-		}
+
 		// 6. If you determine the happiness level is large enough, tell the
 		// user that he loves his pet and use break; to exit for loop.
 
 	}
 
 	static void food() {
-		System.out.println("The " + pet + " isn't hungry it walked away");
+		System.out.println("The " + pet + " is full and hyped");
+		happinessLevel += 3;
 	}
 
 	static void cuddle() {
-		System.out.println();
+		System.out.println("The " + pet + " comes closer and snoozes");
+		happinessLevel += 4;
+	}
+
+	static void play() {
+		System.out.println("The" + pet + "is now tired and sleepy");
+		happinessLevel += 1;
 	}
 
 	// 4. Create methods to handle each of your user selections.
