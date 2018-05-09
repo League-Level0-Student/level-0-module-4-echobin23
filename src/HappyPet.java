@@ -14,19 +14,30 @@ public class HappyPet {
 		pet = JOptionPane.showInputDialog("What pet do you want");
 
 		// 7. REPEAT steps 3 - 6 enough times to make your pet happy!
+		for (int i = 0; i <= 10; i++) {
+			// 3. Use showOptionDialog to ask the user what they want to do to make their
+			// pet happy
+			// (eg: cuddle, food, water, take a walk, groom, clean up poop).
+			// Make sure to customize the title and question too.
+			int task = JOptionPane.showOptionDialog(null, "How do you wanna make your " + pet + " happy?", "Pet meter",
+					0, JOptionPane.INFORMATION_MESSAGE, null, new String[] { "Give food", "Cuddle", "PLay with it" },
+					null);
 
-		// 3. Use showOptionDialog to ask the user what they want to do to make their
-		// pet happy
-		// (eg: cuddle, food, water, take a walk, groom, clean up poop).
-		// Make sure to customize the title and question too.
-		int task = JOptionPane.showOptionDialog(null, "How do you wanna make your " + pet + " happy?", "Pet meter", 0,
-				JOptionPane.INFORMATION_MESSAGE, null, new String[] { "Give food", "Cuddle", "PLay with it" }, null);
-
-		// 5. Use user input to call the appropriate method created in step 4.
-
-		// 6. If you determine the happiness level is large enough, tell the
-		// user that he loves his pet and use break; to exit for loop.
-
+			// 5. Use user input to call the appropriate method created in step 4.
+			if (task == 0) {
+				food();
+			} else if (task == 1) {
+				cuddle();
+			} else if (task == 2) {
+				play();
+			}
+			// 6. If you determine the happiness level is large enough, tell the
+			// user that he loves his pet and use break; to exit for loop.
+			if (happinessLevel >= 10) {
+				System.out.println("Your pet loves you");
+				break;
+			}
+		}
 	}
 
 	static void food() {
@@ -40,8 +51,8 @@ public class HappyPet {
 	}
 
 	static void play() {
-		System.out.println("The" + pet + "is now tired and sleepy");
-		happinessLevel += 1;
+		System.out.println("The " + pet + " is now tired and sleepy");
+		happinessLevel += 2;
 	}
 
 	// 4. Create methods to handle each of your user selections.
